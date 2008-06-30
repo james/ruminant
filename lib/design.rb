@@ -1,5 +1,5 @@
 module Moo
-  class Design
+  class Product
     attr_accessor :url, :type, :crop, :lines, :font_size
     
     def initialize(options={})
@@ -32,6 +32,14 @@ module Moo
           xml.url self.url
         }
       }
+    end
+  end
+  
+  class MiniCard < Product
+    disable_attribute :font_size
+    
+    def product_type
+      "minicard"
     end
   end
 end

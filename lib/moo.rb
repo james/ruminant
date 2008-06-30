@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'builder'
-require 'products/minicard'
+require 'design'
 
 module Moo
   class Order
@@ -19,7 +19,7 @@ module Moo
     end
     
     def add_design(options={})
-      Design.new(options)
+      Product.new(options)
     end
     
     def product_type
