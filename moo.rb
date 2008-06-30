@@ -2,7 +2,7 @@ module Moo
   class Order
     require 'rubygems'
     require 'builder'
-    require 'design'
+    require 'products/design'
     attr_accessor :api_key, :designs
     
     def api_version
