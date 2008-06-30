@@ -7,7 +7,7 @@ xml.moo("xsi:noNamespaceSchemaLocation" => "http://www.moo.com/xsd/api_0.7.xsd")
   xml.payload{
     xml.products {
       xml.product {
-        xml.product_type "minicard"
+        xml.product_type self.product_type
         self.designs.each { |design|
           xml.design {
             xml.image {

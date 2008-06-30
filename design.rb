@@ -1,4 +1,5 @@
 class Moo::Design
+  require 'minicard'
   attr_accessor :url, :type, :crop, :lines
   
   def initialize(options={})
