@@ -14,7 +14,7 @@ class Moo::Design
     content.split("\n").each{|line| lines << line}
   end
   
-  def to_xml(xml)
+  def to_xml(xml=Builder::XmlMarkup.new)
     xml.design {
       xml.image {
         xml.url self.url

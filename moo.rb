@@ -25,8 +25,7 @@ module Moo
       @designs.first.product_type if @designs.first
     end
     
-    def to_xml
-      xml = Builder::XmlMarkup.new
+    def to_xml(xml=Builder::XmlMarkup.new)
       eval File.open("/users/abscond/Rails/moo/template.xml.builder").read
       xml.to_s
     end

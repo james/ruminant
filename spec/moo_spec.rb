@@ -35,6 +35,6 @@ describe "a moo order with a minicard" do
   end
   
   it "should include the xml for the minicard" do
-    @moo.to_xml.should include(@minicard.to_xml(Builder::XmlMarkup.new))
+    @moo.to_xml.should include(@minicard.to_xml)
   end
 end
