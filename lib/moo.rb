@@ -1,8 +1,9 @@
+require 'rubygems'
+require 'builder'
+require 'products/minicard'
+
 module Moo
   class Order
-    require 'rubygems'
-    require 'builder'
-    require 'products/design'
     attr_accessor :api_key, :designs
     
     def api_version

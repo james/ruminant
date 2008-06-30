@@ -1,7 +1,6 @@
 module Moo
   class Design
-    require 'products/minicard'
-    attr_accessor :url, :type, :crop, :lines
+    attr_accessor :url, :type, :crop, :lines, :font_size
     
     def initialize(options={})
       {
@@ -13,6 +12,18 @@ module Moo
     
     def text=(content)
       content.split("\n").each{|line| lines << line}
+    end
+    
+    def self.disable_attribute(attribute)
+      class_eval %{
+        def #{attribute}=(*args)
+          disabled_attribute(#{attribute})
+        end
+      }
+    end
+    
+    def disabled_attribute(attribute)
+      raise "#{self.class} does not support #{attribute}"
     end
     
     def to_xml(xml=Builder::XmlMarkup.new)
