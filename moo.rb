@@ -5,6 +5,10 @@ module Moo
     require 'design'
     attr_accessor :api_key, :designs
     
+    def api_version
+      0.7
+    end
+    
     def initialize(options={})
       {
         :designs => []

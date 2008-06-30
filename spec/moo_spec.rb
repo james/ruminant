@@ -9,7 +9,7 @@ describe "an empty moo order" do
     @moo.to_xml.should include('<moo xsi:noNamespaceSchemaLocation="http://www.moo.com/xsd/api_0.7.xsd">')
   end
   
-  it "should user MOO API version 7" do
+  it "should user MOO API version 0.7" do
     @moo.to_xml.should include("<version>0.7</version>")
   end
   
