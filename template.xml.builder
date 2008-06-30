@@ -9,11 +9,7 @@ xml.moo("xsi:noNamespaceSchemaLocation" => "http://www.moo.com/xsd/api_0.7.xsd")
       xml.product {
         xml.product_type self.product_type
         self.designs.each { |design|
-          xml.design {
-            xml.image {
-              xml.url design.url
-            }
-          }
+          design.to_xml(xml)
         }
       }
     }

@@ -13,4 +13,12 @@ class Moo::Design
   def text=(content)
     content.split("\n").each{|line| lines << line}
   end
+  
+  def to_xml(xml)
+    xml.design {
+      xml.image {
+        xml.url self.url
+      }
+    }
+  end
 end

@@ -25,7 +25,8 @@ end
 describe "a moo order with a minicard" do
   before :each do
     @moo = Moo::Order.new :api_key => "TESTAPIKEY"
-    @moo.designs << Moo::MiniCard.new(:url => "http://farm3.static.flickr.com/2300/2179038972_23d2a1ff40_o.jpg")
+    @minicard = Moo::MiniCard.new(:url => "http://farm3.static.flickr.com/2300/2179038972_23d2a1ff40_o.jpg")
+    @moo.designs << @minicard
   end
   
   it "should have product type of 'minicard'" do
@@ -33,7 +34,7 @@ describe "a moo order with a minicard" do
     @moo.to_xml.should include('<product_type>minicard</product_type>')
   end
   
-  it "should include the minicard's photo url" do
-    @moo.to_xml.should include("<url>http://farm3.static.flickr.com/2300/2179038972_23d2a1ff40_o.jpg</url>")
+  it "should include the xml for the minicard" do
+    @moo.to_xml.should include(@minicard.to_xml(Builder::XmlMarkup.new))
   end
 end
