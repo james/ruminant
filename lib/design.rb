@@ -1,3 +1,4 @@
+require 'text_line'
 module Moo
   class Product
     attr_accessor :url, :type, :crop, :lines, :font_size
@@ -11,7 +12,11 @@ module Moo
     end
     
     def text=(content)
-      content.split("\n").each{|line| lines << line}
+      content.split("\n").each{|line| @lines << TextLine.new(:text => line) }
+    end
+    
+    def line(n)
+      lines[n-1]
     end
     
     def self.disable_attribute(attribute)
