@@ -1,6 +1,6 @@
 require 'text_line'
 module Moo
-  class Product < OptionsStruct.create(:url, :type, :crop, :lines, :font_size)
+  class Design < OptionsStruct.create(:url, :type, :crop, :lines, :font_size)
     
     def default_options
       {
@@ -17,12 +17,13 @@ module Moo
       lines[n-1]
     end
     
-    def bold=(value)
-      set_attribute_on_all_lines(:bold, value)
-    end
-    
-    def set_attribute_on_all_lines(attribute, value)
-      @lines.each{|line| line.send(attribute,value)}
+    [:design, :string, :font_size, :bold, :italic, :align, :font, :colour].each do |text_attribute|
+      class_eval %{
+        # Sets #{text_attribute} attribute on all text lines
+        def #{text_attribute}=(value)
+          set_attribute_on_all_lines(:#{text_attribute}, value)
+        end
+      }
     end
     
     def self.disable_attributes(attributes=[])
@@ -35,10 +36,6 @@ module Moo
       end
     end
     
-    def disable_attribute(attribute)
-      raise "#{self.class} does not support #{attribute}"
-    end
-    
     def to_xml(xml=Builder::XmlMarkup.new)
       xml.design {
         xml.image {
@@ -46,9 +43,21 @@ module Moo
         }
       }
     end
+    
+  private
+    
+    def set_attribute_on_all_lines(attribute, value)
+      @lines.each{|line| line.send(attribute,value)}
+    end
+    
+    def disable_attribute(attribute)
+      raise "#{self.class} does not support #{attribute}"
+    end
+    
+    
   end
   
-  class MiniCard < Product
+  class MiniCard < Design
     disable_attributes [:font_size, :italic]
     
     def product_type
