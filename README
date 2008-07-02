@@ -1,10 +1,30 @@
 Ruminant
 ========
 
+Installation
+------------
+
+If you've never installed a gem from github before - enter the following and you will eternally be graced by a thousand minds:
+gem sources -a http://gems.github.com
+
+Then you can install this like any other gem:
+gem install james-ruminant
+(Except don't just yet, as it's not done. Hang on in there)
+
+Usage
+-----
+
+Moo.api_key = "your api key"
+order = Moo::Order.new
+moocard = Moo::MiniCard.new(:img => "http://farm...")
+order.designs << moocard
+order.to_xml
+
 Contributors thus far
 ---------------------
-Xenia - The name
-Chris - Fixing stuff, and provides the wine
+Xenia Kingsley - Naming powers
+Chris Mear - Fixing stuff, and provides the wine
+Dan Webb - Wisdom
 
 
          (__)

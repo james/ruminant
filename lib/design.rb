@@ -1,13 +1,10 @@
 require 'text_line'
 module Moo
-  class Product
-    attr_accessor :url, :type, :crop, :lines, :font_size
+  class Product < OptionsStruct.new(:url, :type, :crop, :lines, :font_size)
     
-    def initialize(options={})
+    def default_options
       {
         :lines => []
-      }.merge(options).each { |name, value|
-        self.send("#{name}=",value)
       }
     end
     

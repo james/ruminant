@@ -1,20 +1,18 @@
+require 'core_ext/options_struct'
 require 'rubygems'
 require 'builder'
 require 'design'
 
 module Moo
-  class Order
-    attr_accessor :api_key, :designs
+  class Order < OptionsStruct.new(:api_key, :designs)
     
     def api_version
       0.7
     end
     
-    def initialize(options={})
+    def default_options
       {
         :designs => []
-      }.merge(options).each { |name, value|
-        self.send("#{name}=",value)
       }
     end
     
