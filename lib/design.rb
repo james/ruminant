@@ -1,15 +1,16 @@
 require 'text_line'
 module Moo
-  class Product < OptionsStruct.new(:url, :type, :crop, :lines, :font_size)
+  class Product < OptionsStruct.create(:url, :type, :crop, :lines, :font_size)
     
     def default_options
       {
-        :lines => []
+        :lines => [],
+        :crop => 'auto'
       }
     end
     
     def text=(content)
-      content.split("\n").each{|line| @lines << TextLine.new(:text => line) }
+      content.split("\n").each{|line| @lines << TextLine.new(:string => line, :design => self) }
     end
     
     def line(n)
@@ -24,15 +25,17 @@ module Moo
       @lines.each{|line| line.send(attribute,value)}
     end
     
-    def self.disable_attribute(attribute)
-      class_eval %{
-        def #{attribute}=(*args)
-          disabled_attribute(#{attribute})
-        end
-      }
+    def self.disable_attributes(attributes=[])
+      attributes.each do |attribute|
+        class_eval %{
+          def #{attribute}=(*args)
+            disable_attribute(#{attribute})
+          end
+        }
+      end
     end
     
-    def disabled_attribute(attribute)
+    def disable_attribute(attribute)
       raise "#{self.class} does not support #{attribute}"
     end
     
@@ -46,7 +49,7 @@ module Moo
   end
   
   class MiniCard < Product
-    disable_attribute :font_size
+    disable_attributes [:font_size, :italic]
     
     def product_type
       "minicard"

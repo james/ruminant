@@ -1,6 +1,7 @@
 class OptionsStruct
   def self.create(*accessors)
-    class_eval "attr_accessor" + accessors.join(", ")
+    class_eval "attr_accessor :" + accessors.join(", :")
+    self
   end
   
   def default_options

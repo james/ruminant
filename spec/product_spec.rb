@@ -12,8 +12,8 @@ describe "The Product base class" do
   it "should create multiple TextLines from a multi line string" do
     @design.text = "This is Line 1\nAnd this is the second line"
     @design.line(1).class.should == Moo::TextLine
-    @design.line(1).text.should == "This is Line 1"
+    @design.line(1).string.should == "This is Line 1"
     @design.line(2).class.should == Moo::TextLine
-    @design.line(2).text.should == "And this is the second line"
+    @design.line(2).string.should == "And this is the second line"
   end
 end

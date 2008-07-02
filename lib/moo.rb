@@ -4,7 +4,7 @@ require 'builder'
 require 'design'
 
 module Moo
-  class Order < OptionsStruct.new(:api_key, :designs)
+  class Order < OptionsStruct.create(:api_key, :designs)
     
     def api_version
       0.7
@@ -12,7 +12,8 @@ module Moo
     
     def default_options
       {
-        :designs => []
+        :designs => [],
+        :api_key => 0
       }
     end
     
