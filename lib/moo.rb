@@ -18,10 +18,6 @@ module Moo
       }
     end
     
-    def add_design(options={})
-      Product.new(options)
-    end
-    
     def product_type
       @designs.first.product_type if @designs.first
     end
