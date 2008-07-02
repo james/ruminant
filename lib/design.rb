@@ -40,6 +40,24 @@ module Moo
       xml.design {
         xml.image {
           xml.url self.url
+          xml.type self.type
+          xml.crop {
+            xml.auto true
+          }
+        }
+        xml.text_collection {
+          xml.tag! product_type {
+            lines.each_with_index do |line, index|
+              xml.text_line {
+                xml.id index
+                xml.string line.string
+                xml.bold line.bold
+                xml.align line.align
+                xml.font line.font
+                xml.colour xml.colour
+              }
+            end
+          }
         }
       }
     end
