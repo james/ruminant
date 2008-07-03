@@ -1,16 +1,20 @@
-class OptionsStruct
+module OptionsStruct
   def self.create(*accessors)
-    class_eval "attr_accessor :" + accessors.join(", :")
-    self
+    Class.new do
+      attr_accessor *accessors
+      include Methods
+    end
   end
   
-  def default_options
-    {}
-  end
+  module Methods
+    def default_options
+      {}
+    end
   
-  def initialize(options={})
-    default_options.merge(options).each do |name, value|
-      self.send("#{name}=",value)
+    def initialize(options={})
+      default_options.merge(options).each do |name, value|
+        self.send("#{name}=",value)
+      end
     end
   end
 end
