@@ -5,7 +5,6 @@ require 'design'
 
 module Moo
   class Order < OptionsStruct.create(:api_key, :designs)
-    
     def api_version
       0.7
     end

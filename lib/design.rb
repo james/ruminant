@@ -1,7 +1,6 @@
 require 'text_line'
 module Moo
   class Design < OptionsStruct.create(:url, :type, :crop, :lines, :font_size)
-    
     def default_options
       {
         :lines => [],
@@ -67,7 +66,6 @@ module Moo
     def set_attribute_on_all_lines(attribute, value)
       @lines.each{|line| line.send("#{attribute}=",value)}
     end
-    
     
   end
   
