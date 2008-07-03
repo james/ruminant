@@ -69,7 +69,7 @@ module Moo
     end
     
     def disable_attribute(attribute)
-      raise "#{self.class} does not support #{attribute}"
+      raise DisabledAttributeError
     end
     
     
@@ -81,5 +81,8 @@ module Moo
     def product_type
       "minicard"
     end
+  end
+  
+  class DisabledAttributeError < StandardError
   end
 end

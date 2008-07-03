@@ -10,6 +10,10 @@ describe "a minicard" do
   end
   
   it "should not support size" do
-    lambda{@design.font_size = 0.5}.should raise_error
+    lambda{@design.font_size = 0.5}.should raise_error(Moo::DisabledAttributeError)
+  end
+  
+  it "should not support italic" do
+    lambda{@design.italic = true}.should raise_error(Moo::DisabledAttributeError)
   end
 end
