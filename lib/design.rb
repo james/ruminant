@@ -30,7 +30,7 @@ module Moo
       attributes.each do |attribute|
         class_eval %{
           def #{attribute}=(*args)
-            disable_attribute(#{attribute})
+            raise DisabledAttributeError
           end
         }
       end
@@ -66,10 +66,6 @@ module Moo
     
     def set_attribute_on_all_lines(attribute, value)
       @lines.each{|line| line.send("#{attribute}=",value)}
-    end
-    
-    def disable_attribute(attribute)
-      raise DisabledAttributeError
     end
     
     
