@@ -65,7 +65,7 @@ module Moo
   private
     
     def set_attribute_on_all_lines(attribute, value)
-      @lines.each{|line| line.send(attribute,value)}
+      @lines.each{|line| line.send("#{attribute}=",value)}
     end
     
     def disable_attribute(attribute)
