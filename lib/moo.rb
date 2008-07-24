@@ -3,6 +3,9 @@ require 'rubygems'
 require 'builder'
 require 'design'
 
+require 'rubygems'
+require 'rc_rest'
+
 module Moo
   class Order < OptionsStruct.create(:api_key, :designs)
     def api_version
@@ -22,7 +25,13 @@ module Moo
     
     def to_xml(xml=Builder::XmlMarkup.new)
       eval File.open(File.expand_path(File.dirname(__FILE__) + "/template.xml.builder")).read
-      xml.to_s
+      xml
+    end
+    
+    def submit
+      @api = API.new
+      @api.send_order(self)
     end
   end
+  
 end

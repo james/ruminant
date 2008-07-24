@@ -4,12 +4,13 @@ module Moo
     def default_options
       {
         :lines => [],
-        :crop => 'auto'
+        :crop => 'auto',
+        :type => 'variable'
       }
     end
     
     def text=(content)
-      content.split("\n").each{|line| @lines << TextLine.new(:string => line, :design => self) }
+      content.split("\n").each{|line| lines << TextLine.new(:string => line, :design => self) }
     end
     
     def line(n)
@@ -45,15 +46,16 @@ module Moo
           }
         }
         xml.text_collection {
-          xml.tag! product_type {
+          #xml.tag! product_type {
+          xml.minicard {
             lines.each_with_index do |line, index|
               xml.text_line {
-                xml.id index
+                xml.id index+1
                 xml.string line.string
                 xml.bold line.bold
                 xml.align line.align
                 xml.font line.font
-                xml.colour xml.colour
+                xml.colour line.colour
               }
             end
           }

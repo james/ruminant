@@ -6,7 +6,7 @@ describe "an empty moo order" do
   end
   
   it "should have the appropiate header" do
-    @moo.to_xml.should include('<moo xsi:noNamespaceSchemaLocation="http://www.moo.com/xsd/api_0.7.xsd">')
+    @moo.to_xml.should include('<?xml version="1.0" encoding="UTF-8"?><moo xsi:noNamespaceSchemaLocation="http://www.moo.com/xsd/api_0.7.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">')
   end
   
   it "should user MOO API version 0.7" do
@@ -19,6 +19,10 @@ describe "an empty moo order" do
   
   it "should call build" do
     @moo.to_xml.should include("<call>build</call>")
+  end
+  
+  it "should not contain to_s" do
+    @moo.to_xml.should_not include("to_s")
   end
 end
 
