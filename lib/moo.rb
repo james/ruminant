@@ -3,9 +3,6 @@ require 'rubygems'
 require 'builder'
 require 'design'
 
-require 'rubygems'
-require 'rc_rest'
-
 module Moo
   class Order < OptionsStruct.create(:api_key, :designs)
     def api_version
