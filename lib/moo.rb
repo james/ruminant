@@ -2,6 +2,7 @@ require 'core_ext/options_struct'
 require 'rubygems'
 require 'builder'
 require 'design'
+
 require 'net/http'
 require 'uri'
 require 'hpricot'

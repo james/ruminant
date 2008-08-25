@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{ruminant}
-  s.version = "0.1"
+  s.version = "0.9.0"
 
   s.authors = ["James Darling"]
   s.cert_chain = nil
@@ -16,6 +16,5 @@ Gem::Specification.new do |s|
   s.summary = %q{A ruby library to regurgitate MOO products}
   s.test_files = %w(spec/all.rb spec/design_spec.rb spec/moo_spec.rb spec/product_spec.rb spec/spec_helper.rb)
 
-  s.add_dependency(%q<ZenTest>, [">= 3.4.2"])
-  s.add_dependency(%q<hoe>, [">= 1.1.7"])
+  s.add_dependency(%q<Hpricot>)
 end
