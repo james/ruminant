@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
   s.summary = %q{A ruby library to regurgitate MOO products}
   s.test_files = %w(spec/all.rb spec/design_spec.rb spec/moo_spec.rb spec/product_spec.rb spec/spec_helper.rb)
 
-  s.add_dependency(%q<hpricot builder>)
+  s.add_dependency("hpricot")
+  s.add_dependency("builder")
 end
