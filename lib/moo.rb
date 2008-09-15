@@ -25,7 +25,7 @@ module Moo
     end
     
     def to_xml(xml=nil)
-      xml = Builder::XmlMarkup.new(:target => (@xml_string ||= "")) unless xml
+      xml = Builder::XmlMarkup.new(:target => (@xml_string = "")) unless xml
       eval File.open(File.expand_path(File.dirname(__FILE__) + "/template.xml.builder")).read
       xml.target!
     end
