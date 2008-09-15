@@ -19,6 +19,8 @@ Usage
 All parameters are done in an ActiveRecord attributes style, i.e. they can be passed into new() as a hash, and are all attr-accessors
 
 Making an order:
+require 'rubygems'
+require 'moo'
 order = Moo::Order.new(:api_key => "your api key")
 
 Adding a product:
