@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name = %q{ruminant}
-  s.version = "0.9.0"
+  s.version = "0.9.1"
 
   s.authors = ["James Darling"]
   s.cert_chain = nil
-  s.date = %q{2008-07-24}
+  s.date = %q{2008-09-15}
   s.description = %q{A ruby library to regurgitate MOO products}
   s.email = %q{james@abscond.org}
   s.files = %w(lib/moo.rb lib/design.rb lib/template.xml.builder lib/text_line.rb lib/core_ext/options_struct.rb README)
