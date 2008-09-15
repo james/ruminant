@@ -9,16 +9,47 @@ gem sources -a http://gems.github.com
 
 Then you can install this like any other gem:
 gem install james-ruminant
-(Except don't just yet, as it's not done. Hang on in there)
+
 
 Usage
 -----
 
-Moo.api_key = "your api key"
-order = Moo::Order.new
-moocard = Moo::MiniCard.new(:img => "http://farm...")
+All parameters are done in an ActiveRecord attributes style, i.e. they can be passed into new() as a hash, and are all attr-accessors
+
+Making an order:
+order = Moo::Order.new(:api_key => "your api key")
+
+Adding a product:
+moocard = Moo::MiniCard.new(:url => "http://farm...")
 order.designs << moocard
-order.to_xml
+
+Adding text
+moocard.text = "This is line 1 \n This is line 2"
+moocard.line(1) #=> This is line 1
+moocard.line(1).bold = true
+moocard.line(1).align = "right"
+moocard.line(1).font = "modern"
+moocard.line(1).colour = "#444444"
+moocard.bold = true # sets bold=true on all lines
+
+Submitting to moo:
+order.to_xml # Gives you the generated xml if you want to manually submit it
+order.submit
+if order.error?
+	order.error_string
+else
+	order.start_url
+end
+
+Current Limitations
+-------------------
+
+Currently I only support MiniCards, but have made it incredibly easy to add the other supported products.
+I haven't yet, as I do not have a personal need, so don't feel I can test it. If you have such a need, do let me know, as we can add it.
+
+Manual Cropping is not currently supported for the same reason.
+
+Please please please do feel to give feedback and/or submit patches. I want this library to be as helpful as possible, but can only do that if I know what you want.
 
 Contributors thus far
 ---------------------
