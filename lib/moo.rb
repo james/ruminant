@@ -36,7 +36,7 @@ module Moo
                                     {'xml'=>self.to_xml, 'method'=>'direct'})
       @raw_response = res.body
       process_response
-      !@error
+      !error?
     end
     
     def process_response
