@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{ruminant}
-  s.version = "0.9.1"
+  s.version = "0.9.2"
 
   s.authors = ["James Darling"]
   s.cert_chain = nil
