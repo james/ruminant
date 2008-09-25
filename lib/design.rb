@@ -47,6 +47,7 @@ module Moo
         }
         xml.text_collection {
           #xml.tag! product_type {
+          # this needs changing for multiple product types
           xml.minicard {
             lines.each_with_index do |line, index|
               xml.text_line {
@@ -77,6 +78,16 @@ module Moo
     def product_type
       "minicard"
     end
+  end
+  
+  class Sticker < Design
+    
+    disable_attributes [:font, :font_size, :colour, :align, :bold, :string, :italic]
+    
+    def product_type
+      "sticker"
+    end
+    
   end
   
   class DisabledAttributeError < StandardError
