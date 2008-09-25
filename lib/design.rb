@@ -45,21 +45,22 @@ module Moo
             xml.auto true
           }
         }
-        xml.text_collection {
-          #xml.tag! product_type {
-          # this needs changing for multiple product types
-          xml.minicard {
-            lines.each_with_index do |line, index|
-              xml.text_line {
-                xml.id index+1
-                xml.string line.string
-                xml.bold line.bold
-                xml.align line.align
-                xml.font line.font
-                xml.colour line.colour
-              }
-            end
-          }
+        if !product_type.eql?("sticker")
+          xml.text_collection {
+            xml.tag! product_type {
+            xml.minicard {
+              lines.each_with_index do |line, index|
+                xml.text_line {
+                  xml.id index+1
+                  xml.string line.string
+                  xml.bold line.bold
+                  xml.align line.align
+                  xml.font line.font
+                  xml.colour line.colour
+                }
+              end
+            }
+          end
         }
       }
     end
