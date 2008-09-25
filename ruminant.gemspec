@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new("> 0.0.0")
   s.rubygems_version = %q{1.1.1}
   s.summary = %q{A ruby library to regurgitate MOO products}
-  s.test_files = %w(spec/all.rb spec/design_spec.rb spec/moo_spec.rb spec/product_spec.rb spec/spec_helper.rb)
+  s.test_files = %w(spec/design_spec.rb spec/moo_spec.rb spec/product_spec.rb spec/spec_helper.rb)
 
   s.add_dependency("hpricot")
   s.add_dependency("builder")
