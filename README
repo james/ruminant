@@ -12,11 +12,10 @@ gem sources -a http://gems.github.com
 Then you can install this like any other gem:
 gem install james-ruminant
 
-
 Usage
 -----
 
-All parameters are done in an ActiveRecord attributes style, i.e. they can be passed into new() as a hash, and are all attr-accessors
+All parameters are done in an ActiveRecord attributes style, i.e. they can be passed into new() as a hash, and are all attr-accessors. Note that product objects do not have attributes that are not impossible for that product, and that a Sticker will raise an error if you try to give it text.
 
 Making an order:
 require 'rubygems'
@@ -48,7 +47,7 @@ end
 Current Limitations
 -------------------
 
-Currently I only support MiniCards, but have made it incredibly easy to add the other supported products.
+Currently I only support MiniCards and Stickers, but have made it incredibly easy to add the other supported products.
 I haven't yet, as I do not have a personal need, so don't feel I can test it. If you have such a need, do let me know, as we can add it.
 
 Manual Cropping is not currently supported for the same reason.
@@ -60,6 +59,7 @@ Contributors thus far
 Xenia Kingsley - Naming powers
 Chris Mear - Fixing stuff, and provides the wine
 Dan Webb - Wisdom
+Tom Armitage - adding Moo::Sticker
 
 
          (__)
