@@ -88,6 +88,8 @@ module Moo
       "sticker"
     end
     
+    undef :text=
+    undef :line    
   end
   
   class DisabledAttributeError < StandardError

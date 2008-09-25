@@ -54,4 +54,12 @@ describe "a sticker" do
   it "should not support colour" do
     lambda{@design.colour = "#ccc"}.should raise_error(Moo::DisabledAttributeError)
   end
+  
+  it "should not support any text" do
+    lambda{@design.text = "testing!"}.should raise_error(NoMethodError)
+  end
+  
+  it "should not support lines" do
+    lambda{@design.line(1)}.should raise_error(NoMethodError)
+  end
 end
