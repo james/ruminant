@@ -47,7 +47,7 @@ module Moo
         }
         if !product_type.eql?("sticker")
           xml.text_collection {
-            xml.tag! product_type {
+            xml.tag!(product_type) {
               lines.each_with_index do |line, index|
                 xml.text_line {
                   xml.id index+1
