@@ -30,6 +30,10 @@ describe "The Design base class" do
   it "should have a text_collection element when converted to xml" do
     @design.to_xml.should include("<text_collection>")
   end
+  
+  it "should have a text_line element when converted to xml" do
+    @design.to_xml.should include("<text_line>")
+  end
 end
 
 describe  "The Sticker subclass" do
