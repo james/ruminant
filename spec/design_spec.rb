@@ -63,3 +63,15 @@ describe "a sticker" do
     lambda{@design.line(1)}.should raise_error(NoMethodError)
   end
 end
+
+describe "a postcard" do
+  before(:each) do
+    @design = Moo::Postcard.new(:url => "")
+  end
+
+  
+  it "should have postcard as the type" do
+    @design.product_type.should == "postcard"
+  end
+  
+end

@@ -80,6 +80,13 @@ module Moo
     end
   end
   
+  class Postcard < Design
+    def product_type
+      "postcard"
+    end
+    
+  end
+  
   class Sticker < Design
     
     disable_attributes [:font, :font_size, :colour, :align, :bold, :string, :italic]
