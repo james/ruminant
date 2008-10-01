@@ -68,10 +68,17 @@ describe "a postcard" do
   before(:each) do
     @design = Moo::Postcard.new(:url => "")
   end
-
   
   it "should have postcard as the type" do
     @design.product_type.should == "postcard"
+  end
+  
+  it "should not support size" do
+    lambda{@design.font_size = 0.5}.should raise_error(Moo::DisabledAttributeError)
+  end
+  
+  it "should not support italic" do
+    lambda{@design.italic = true}.should raise_error(Moo::DisabledAttributeError)
   end
   
 end

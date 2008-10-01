@@ -81,6 +81,8 @@ module Moo
   end
   
   class Postcard < Design
+    disable_attributes [:font_size, :italic]
+
     def product_type
       "postcard"
     end
