@@ -80,5 +80,41 @@ describe "a postcard" do
   it "should not support italic" do
     lambda{@design.italic = true}.should raise_error(Moo::DisabledAttributeError)
   end
+end
+
+describe "a notecard" do
+  before(:each) do
+    @design = Moo::Notecard.new(:url => "")
+  end
   
+  it "should have notecard as the type" do
+    @design.product_type.should == "notecard"
+  end
+  
+  it "should not support size" do
+    lambda{@design.font_size = 0.5}.should raise_error(Moo::DisabledAttributeError)
+  end
+  
+  it "should not support italic" do
+    lambda{@design.italic = true}.should raise_error(Moo::DisabledAttributeError)
+  end
+end
+
+describe "a greetingcard" do
+
+  before(:each) do
+    @design = Moo::Greetingcard.new(:url => "")
+  end
+
+  it "should have greetingcard as the type" do
+    @design.product_type.should == "greetingcard"
+  end
+
+  it "should not support size" do
+    lambda{@design.font_size = 0.5}.should raise_error(Moo::DisabledAttributeError)
+  end
+
+  it "should not support italic" do
+    lambda{@design.italic = true}.should raise_error(Moo::DisabledAttributeError)
+  end
 end

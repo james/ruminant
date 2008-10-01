@@ -88,6 +88,25 @@ module Moo
     end
     
   end
+
+  class Notecard < Design
+    disable_attributes [:font_size, :italic]
+
+    def product_type
+      "notecard"
+    end
+    
+  end
+
+  class Greetingcard < Design
+    disable_attributes [:font_size, :italic]
+
+    def product_type
+      "greetingcard"
+    end
+    
+  end
+
   
   class Sticker < Design
     
