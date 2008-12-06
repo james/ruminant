@@ -10,7 +10,7 @@ If you've never installed a gem from github before - enter the following and you
 gem sources -a http://gems.github.com
 
 Then you can install this like any other gem:
-gem install infovore-ruminant
+gem install james-ruminant
 
 Usage
 -----
